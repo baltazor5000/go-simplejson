@@ -33,6 +33,15 @@ func New() *Json {
 	}
 }
 
+// Return length Json
+func (j *Json) Len() int {
+    array, err := j.Array()
+    if err != nil {
+	return 0
+    }
+    return len(array)
+}
+
 // Interface returns the underlying data
 func (j *Json) Interface() interface{} {
 	return j.data
