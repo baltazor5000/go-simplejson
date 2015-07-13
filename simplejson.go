@@ -33,7 +33,7 @@ func New() *Json {
 	}
 }
 
-// Return length Json
+// Return length Json array
 func (j *Json) Len() int {
     array, err := j.Array()
     if err != nil {
