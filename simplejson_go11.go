@@ -63,6 +63,8 @@ func (j *Json) Int64() (int64, error) {
 	switch j.data.(type) {
 	case json.Number:
 		return j.data.(json.Number).Int64()
+	case string:
+		return strconv.ParseInt(reflect.ValueOf(j.data).String(), 10, 64)
 	case float32, float64:
 		return int64(reflect.ValueOf(j.data).Float()), nil
 	case int, int8, int16, int32, int64:
